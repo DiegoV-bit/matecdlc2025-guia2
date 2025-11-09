@@ -1,0 +1,93 @@
+{
+  "name": "Synthetic Gestational Diabetes First Trimester Dataset",
+  "version": "1.0",
+  "description": "Synthetic dataset for ML education on gestational diabetes, first trimester only.",
+  "n_rows": 1500,
+  "n_columns": 20,
+  "target": "label_gdm",
+  "positive_rate": 0.174,
+  "columns": {
+    "age_years": {
+      "dtype": "float64",
+      "missing_fraction": 0.0
+    },
+    "bmi_prepreg_kg_m2": {
+      "dtype": "float64",
+      "missing_fraction": 0.0
+    },
+    "systolic_bp_mmHg": {
+      "dtype": "float64",
+      "missing_fraction": 0.03
+    },
+    "diastolic_bp_mmHg": {
+      "dtype": "float64",
+      "missing_fraction": 0.024
+    },
+    "map_mmHg": {
+      "dtype": "float64",
+      "missing_fraction": 0.0
+    },
+    "gestational_weeks": {
+      "dtype": "float64",
+      "missing_fraction": 0.0
+    },
+    "fpg_mmol_l": {
+      "dtype": "float64",
+      "missing_fraction": 0.07266666666666667
+    },
+    "hba1c_percent": {
+      "dtype": "float64",
+      "missing_fraction": 0.108
+    },
+    "insulin_uIU_ml": {
+      "dtype": "float64",
+      "missing_fraction": 0.072
+    },
+    "homa_ir": {
+      "dtype": "float64",
+      "missing_fraction": 0.0
+    },
+    "triglycerides_mmol_l": {
+      "dtype": "float64",
+      "missing_fraction": 0.09866666666666667
+    },
+    "hdl_mmol_l": {
+      "dtype": "float64",
+      "missing_fraction": 0.05733333333333333
+    },
+    "parity": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    },
+    "family_history_t2d": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    },
+    "previous_gdm": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    },
+    "pcos": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    },
+    "smoking_first_trimester": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    },
+    "physical_activity_level": {
+      "dtype": "float64",
+      "missing_fraction": 0.04666666666666667
+    },
+    "diet_score_0_100": {
+      "dtype": "float64",
+      "missing_fraction": 0.046
+    },
+    "label_gdm": {
+      "dtype": "int64",
+      "missing_fraction": 0.0
+    }
+  },
+  "license": "CC-BY-NC (synthetic educational use)",
+  "source": "Fully synthetic \u2014 generated programmatically; no real patient data."
+}
