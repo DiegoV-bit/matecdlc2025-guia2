@@ -1,1 +1,25 @@
 .vscode
+# Byte-compiled / optimized / cached files
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env/
+.Python
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
