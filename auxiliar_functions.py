@@ -1,4 +1,6 @@
 import pandas as pd
+from scipy import stats
+from math import sqrt
 
 def get_range_outlier(
         q1:float, 
@@ -45,3 +47,45 @@ def categorize_iqr(value):
     else:
         return 0
         
+def calculate_ic_known_std(muestral_mean, population_std, n, trust_level=0.95):
+    z_crit = stats.norm.ppf((1+trust_level)/2)
+    min = muestral_mean - z_crit * (population_std/sqrt(n))
+    max = muestral_mean + z_crit * (population_std/sqrt(n))
+    return (min, max)
+
+def calculate_ic_unknown_std(muestral_mean, muestral_std, n, trust_level=0.95):
+    freedom_degrees = n-1
+    t_crit = stats.t.ppf((1+trust_level)/2, freedom_degrees)
+    min = muestral_mean - t_crit * (muestral_std/sqrt(n))
+    max = muestral_mean + t_crit * (muestral_std/sqrt(n))
+    return (min, max)
+
+def calculate_ic_mean(mean, std, n, trust_level=0.95, known_std=False):
+    if known_std:
+        crit = stats.norm.ppf((1 + trust_level) / 2)
+    else:
+        crit = stats.t.ppf((1 + trust_level) / 2, df=n - 1)
+
+    margin_error = crit * (std / sqrt(n))
+    min = mean - margin_error
+    max = mean + margin_error
+    return (min, max)
+
+def calculate_ic_variance(muestral_std, n, trust_level=0.95):
+    freedom_degrees = n - 1
+    alpha = 1 - trust_level
+
+    chi2_low = stats.chi2.ppf(alpha / 2, df=freedom_degrees)
+    chi2_high = stats.chi2.ppf(1 - alpha / 2, df=freedom_degrees)
+
+    s2 = muestral_std ** 2
+    var_min = (freedom_degrees * s2) / chi2_high
+    var_max = (freedom_degrees * s2) / chi2_low
+
+    return (var_min, var_max)
+
+def calculate_ic_std(muestral_std, n, trust_level=0.95):
+    min, max = calculate_ic_variance(muestral_std, n, trust_level)
+    std_min = sqrt(min)
+    std_max = sqrt(max)
+    return (std_min, std_max)
