@@ -101,7 +101,8 @@ La guía solicita realizar, como mínimo, las siguientes tareas:
 - No se propone **transformación** (log/Box–Cox) en variables muy asimétricas.
 
 **Cómo corregir**
-- Generar **QQ-plots** y **superponer normal** en histogramas para variables no normales.
+- Generar **Q
+Q-plots** y **superponer normal** en histogramas para variables no normales.
 - Probar **transformaciones** (log/Box–Cox) y re-evaluar normalidad; documentar impacto.
 
 ---
