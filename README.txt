@@ -37,7 +37,7 @@ ANÁLISIS INCLUIDOS:
   • Visualizaciones comparativas y interpretación clínica
 
 ARCHIVOS:
-  Entregable.ipynb                              - Notebook principal
+  Informe.ipynb                                 - Notebook principal
   auxiliar_functions.py                         - Funciones auxiliares
   gdm_first_trimester_ml_dataset.csv           - Dataset (1500 registros)
   gdm_first_trimester_ml_dataset_metadata.json - Metadatos
@@ -134,7 +134,7 @@ source .venv/bin/activate
 
 2. ABRIR EL NOTEBOOK:
    
-   Click en Entregable.ipynb desde el explorador de archivos
+   Click en Informe.ipynb desde el explorador de archivos
 
 
 3. SELECCIONAR KERNEL:
