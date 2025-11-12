@@ -52,6 +52,7 @@ Análisis exploratorio exhaustivo de un dataset sintético del primer trimestre 
 - ✓ Python 3.8 o superior
 - ✓ Extensión: Python (Microsoft)
 - ✓ Extensión: Jupyter (Microsoft)
+- ✓ **Make** (herramienta de automatización)
 
 ### Sistemas Soportados
 
@@ -61,58 +62,104 @@ Análisis exploratorio exhaustivo de un dataset sintético del primer trimestre 
 
 ---
 
-## 🚀 Configuración Rápida
+## 🚀 Configuración del Ambiente
 
-### Windows - Configuración Completa (PowerShell)
+### Paso 1: Instalar Make
 
-```powershell
-cd D:\CopilotWS\matecdlc2025-guia2
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
-```
-
-### Linux - Configuración Completa (Bash)
+Este proyecto usa **Makefile** para automatizar todas las tareas. Verifica si tienes `make` instalado:
 
 ```bash
-cd ~/matecdlc2025-guia2
-python3 -m pip install --upgrade pip
-pip3 install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
+make --version
+```
+
+Si no lo tienes, instálalo según tu sistema operativo:
+
+#### Windows
+
+**Opción 1: Chocolatey (Recomendado)**
+```powershell
+# Instalar Chocolatey si no lo tienes: https://chocolatey.org/install
+choco install make
+```
+
+**Opción 2: Scoop**
+```powershell
+scoop install make
+```
+
+**Opción 3: Git Bash**
+- Instala [Git for Windows](https://git-scm.com/download/win) que incluye `make` en Git Bash
+
+#### Linux
+
+```bash
+# Debian/Ubuntu
+sudo apt-get install make
+
+# Fedora/RHEL
+sudo dnf install make
+
+# Arch
+sudo pacman -S make
+```
+
+#### macOS
+
+```bash
+# Viene preinstalado con Xcode Command Line Tools
+xcode-select --install
 ```
 
 ---
 
-## 🐍 Configuración con Entorno Virtual (Recomendado)
+### Paso 2: Configurar el Proyecto
 
-### Windows - Entorno Virtual (PowerShell)
+Una vez tengas `make` instalado:
 
-```powershell
-cd D:\CopilotWS\matecdlc2025-guia2
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
-python -m ipykernel install --user --name=venv_gdm --display-name "Python (GDM)"
-```
-
-**Para activar el entorno en sesiones futuras:**
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-### Linux/macOS - Entorno Virtual (Bash/Zsh)
+#### Opción A: Instalación Rápida (sin entorno virtual)
 
 ```bash
-cd ~/matecdlc2025-guia2
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
-python -m ipykernel install --user --name=venv_gdm --display-name "Python (GDM)"
+make setup
 ```
 
-**Para activar el entorno en sesiones futuras:**
+Este comando instala todas las dependencias en tu instalación global de Python.
+
+#### Opción B: Entorno Virtual (Recomendado)
+
 ```bash
+make setup-venv
+```
+
+Este comando:
+- ✅ Crea un entorno virtual en `.venv`
+- ✅ Instala todas las dependencias
+- ✅ Registra el kernel Jupyter como "Python (GDM)"
+
+**Para activar el entorno en sesiones futuras:**
+
+```powershell
+# Windows (PowerShell)
+.\.venv\Scripts\Activate.ps1
+```
+
+```bash
+# Linux/macOS
 source .venv/bin/activate
+```
+
+---
+
+### Comandos Útiles del Makefile
+
+```bash
+make help           # Ver todos los comandos disponibles
+make setup          # Instalación rápida (global)
+make setup-venv     # Crear entorno virtual completo
+make install-deps   # Solo actualizar/instalar dependencias
+make install-kernel # Registrar kernel Jupyter
+make clean-venv     # Eliminar entorno virtual
+make dist           # Crear archivo tar.gz para entrega
+make clean          # Eliminar archivo tar.gz
 ```
 
 ---
@@ -172,16 +219,15 @@ Click en `Informe.ipynb` desde el explorador de archivos de VSCode
 
 **Solución:**
 ```bash
-# Windows
-pip install ipykernel
-
-# Linux
-pip3 install ipykernel
+make install-kernel
 ```
 
 ### ❌ ModuleNotFoundError al ejecutar celdas
 
-**Solución:** Reinstalar dependencias (ejecutar bloque de configuración completo arriba)
+**Solución:**
+```bash
+make install-deps
+```
 
 ### ❌ Gráficos no se visualizan en VSCode
 

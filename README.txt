@@ -58,69 +58,87 @@ SISTEMAS SOPORTADOS:
   • macOS 11+ (Big Sur o superior)
 
 ================================================================================
-  CONFIGURACIÓN RÁPIDA
+  CONFIGURACIÓN DEL AMBIENTE
 ================================================================================
 
 ------------------------------------------------------------------------
-WINDOWS - Configuración Completa (PowerShell)
+PASO 1: Instalar Make
 ------------------------------------------------------------------------
 
-# Copiar y ejecutar todo el bloque en PowerShell:
+Este proyecto usa Makefile para automatizar todas las tareas.
+Verifica si tienes 'make' instalado:
 
-cd D:\CopilotWS\matecdlc2025-guia2
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
+  make --version
 
-
-------------------------------------------------------------------------
-LINUX - Configuración Completa (Bash)
-------------------------------------------------------------------------
-
-# Copiar y ejecutar todo el bloque en terminal:
-
-cd ~/matecdlc2025-guia2
-python3 -m pip install --upgrade pip
-pip3 install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
+Si no lo tienes, instálalo según tu sistema operativo:
 
 
-================================================================================
-  CONFIGURACIÓN CON ENTORNO VIRTUAL (RECOMENDADO)
-================================================================================
+WINDOWS:
 
-------------------------------------------------------------------------
-WINDOWS - Entorno Virtual (PowerShell)
-------------------------------------------------------------------------
+  Opción 1 - Chocolatey (Recomendado):
+    choco install make
+    (Si no tienes Chocolatey: https://chocolatey.org/install)
 
-# Copiar y ejecutar todo el bloque:
+  Opción 2 - Scoop:
+    scoop install make
 
-cd D:\CopilotWS\matecdlc2025-guia2
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
-python -m ipykernel install --user --name=venv_gdm --display-name "Python (GDM)"
+  Opción 3 - Git Bash:
+    Instala Git for Windows (incluye make en Git Bash)
+    https://git-scm.com/download/win
 
 
-# Para activar el entorno en sesiones futuras:
-.\.venv\Scripts\Activate.ps1
+LINUX:
+
+  Debian/Ubuntu:    sudo apt-get install make
+  Fedora/RHEL:      sudo dnf install make
+  Arch:             sudo pacman -S make
+
+
+macOS:
+
+  Viene preinstalado con Xcode Command Line Tools
+  Si no lo tienes:  xcode-select --install
 
 
 ------------------------------------------------------------------------
-LINUX/macOS - Entorno Virtual (Bash/Zsh)
+PASO 2: Configurar el Proyecto
 ------------------------------------------------------------------------
 
-# Copiar y ejecutar todo el bloque:
+Una vez tengas 'make' instalado:
 
-cd ~/matecdlc2025-guia2
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install pandas numpy matplotlib seaborn scipy scikit-learn ipykernel
-python -m ipykernel install --user --name=venv_gdm --display-name "Python (GDM)"
+OPCIÓN A - Instalación Rápida (sin entorno virtual):
+
+  make setup
+
+  Este comando instala todas las dependencias en tu instalación global de Python.
 
 
-# Para activar el entorno en sesiones futuras:
-source .venv/bin/activate
+OPCIÓN B - Entorno Virtual (RECOMENDADO):
+
+  make setup-venv
+
+  Este comando:
+    ✓ Crea un entorno virtual en .venv
+    ✓ Instala todas las dependencias
+    ✓ Registra el kernel Jupyter como "Python (GDM)"
+
+  Para activar el entorno en sesiones futuras:
+    Windows:    .\.venv\Scripts\Activate.ps1
+    Linux/Mac:  source .venv/bin/activate
+
+
+------------------------------------------------------------------------
+COMANDOS ÚTILES DEL MAKEFILE
+------------------------------------------------------------------------
+
+  make help           - Ver todos los comandos disponibles
+  make setup          - Instalación rápida (global)
+  make setup-venv     - Crear entorno virtual completo
+  make install-deps   - Solo actualizar/instalar dependencias
+  make install-kernel - Registrar kernel Jupyter
+  make clean-venv     - Eliminar entorno virtual
+  make dist           - Crear archivo tar.gz para entrega
+  make clean          - Eliminar archivo tar.gz
 
 
 ================================================================================
@@ -176,13 +194,11 @@ ESTRUCTURA DEL NOTEBOOK:
 ================================================================================
 
 PROBLEMA: No se puede seleccionar kernel / "ipykernel not found"
-SOLUCIÓN: Ejecutar en terminal:
-          Windows: pip install ipykernel
-          Linux:   pip3 install ipykernel
+SOLUCIÓN: make install-kernel
 
 
 PROBLEMA: ModuleNotFoundError al ejecutar celdas
-SOLUCIÓN: Reinstalar dependencias (ejecutar bloque de configuración completo)
+SOLUCIÓN: make install-deps
 
 
 PROBLEMA: Gráficos no se visualizan en VSCode
