@@ -21,7 +21,7 @@ Esta guía se enfoca en el **análisis exploratorio estadístico de datos clíni
 
 **Plazos y entrega:**
 
-1. **Fecha límite:** viernes 15/11 a las 13:00 hrs (SCL).  
+1. **Fecha límite:** viernes 15/11 a las 13:00 hrs (SCL).  Se espera entregar el miércoles 12/11 en horario de la evaluación presencial.
 2. **Entrega:** los *Jupyter Notebooks* desarrollados y un **reporte tipo resumen** del trabajo planteado.  
 3. Si usa GPT u otra herramienta de IA, **debe indicarlo** dentro de las herramientas empleadas.  
 4. Toda entrega se envía en un archivo comprimido `.tar.gz` o `.zip` al correo: **david.medina@umag.cl**  
