@@ -1,178 +1,291 @@
-# matecdlc2025-guia2
+# Análisis Exploratorio de Datos: Diabetes Gestacional (GDM)
 
-Análisis Exploratorio de Datos sobre Diabetes Gestacional (GDM) - Guía 2 del curso Matemáticas para las Ciencias de la Computación.
+**Universidad de Magallanes**  
+Facultad de Ingeniería, Departamento de Ingeniería en Computación  
+**Asignatura:** Matemática para Ciencias de la Computación  
+**Profesor:** David Medina Ortiz
 
-## Equipo de Trabajo
+---
 
-**Nombre del equipo:** Almas de Litio
+## 👥 Equipo de Desarrollo
+
+**Equipo:** Alma de Litio
 
 **Integrantes:**
 - Pablo Gómez (Líder)
 - Emmanuel Velásquez
 - Diego Vidal
 
----
-
-## Resumen del Proyecto
-
-Este repositorio contiene el desarrollo de la Guía Práctica 2 enfocada en el **análisis exploratorio estadístico de datos clínicos** para un dataset sintético sobre diabetes gestacional (GDM) del primer trimestre del embarazo.
-
-### 📊 Progreso Global: 39%
-
-| Sección | Estado | Progreso |
-|---------|--------|----------|
-| 2.1 Exploración Descriptiva | 🟡 | 56% |
-| 2.2 Intervalos de Confianza | 🟡 | 54% |
-| 2.3 Pruebas de Hipótesis | 🔴 | 8% |
-| 2.4 Evaluación de Normalidad | 🟢 | 85% |
-| 2.5 Análisis Bivariado | 🔴 | 28% |
-| 2.6 Conclusiones | 🔴 | 0% |
+**Fecha de Entrega:** 12 de noviembre de 2025
 
 ---
 
-## 🎯 Características Clave
+## 📋 Descripción del Proyecto
 
-### Documento Principal: `Entregable.ipynb`
+Análisis exploratorio exhaustivo de un dataset sintético del primer trimestre del embarazo para caracterizar estadísticamente el riesgo de diabetes gestacional (GDM).
 
-1. **Estructura organizada** por secciones según `INSTRUCCIONES.md`
-   - Sección 1: Descripción del dataset (completa ✅)
-   - Sección 2: Actividades desarrolladas (2.1 - 2.6)
-   - Sección 3: Entregables y archivos adjuntos (completa ✅)
+### Análisis Incluidos
 
-2. **Indicadores de progreso visuales**
-   - Emojis de estado: 🔴 (crítico), 🟡 (en progreso), 🟢 (casi completo)
-   - Porcentajes de completitud por sección
-   - Listas de tareas realizadas y pendientes
+- ✅ Estadística descriptiva y detección de outliers (IQR, Isolation Forest)
+- ✅ Intervalos de confianza para variables clave
+- ✅ Pruebas de hipótesis (t-test, Mann-Whitney, ANOVA, Chi-cuadrado)
+- ✅ Análisis de normalidad (Shapiro-Wilk, Kolmogorov-Smirnov)
+- ✅ Análisis bivariado (correlaciones de Pearson y Spearman)
+- ✅ Visualizaciones comparativas y interpretación clínica
 
-3. **Código integrado del prototipo**
-   - Importación y exploración de datos
-   - Estadística descriptiva con IQR
-   - Detección de outliers (IQR + Isolation Forest)
-   - Intervalos de confianza para variables clave
-   - Pruebas de normalidad (Shapiro-Wilk, KS-Lilliefors)
-   - Matriz de correlación y heatmaps
-   - Función de comparación de grupos (t-test/Mann-Whitney)
+### Archivos del Proyecto
 
-4. **Documentación completa**
-   - Lista de todos los archivos a entregar
-   - Herramientas y librerías utilizadas
-   - Instrucciones de ejecución
-   - Referencias a archivos de soporte
-
-### Archivos de Soporte
-
-- **`TASKS.md`**: Lista de tareas organizadas por sección (orden lineal)
-- **`auxiliar_functions.py`**: Funciones auxiliares para análisis estadístico
-- **`1_check_data.ipynb`**: Prototipo inicial del desarrollo
-- **Dataset**: `gdm_first_trimester_ml_dataset.csv` (~1500 registros)
+| Archivo | Descripción |
+|---------|-------------|
+| `Informe.ipynb` | Notebook principal con el análisis completo |
+| `auxiliar_functions.py` | Funciones auxiliares reutilizables |
+| `gdm_first_trimester_ml_dataset.csv` | Dataset (1500 registros) |
+| `gdm_first_trimester_ml_dataset_metadata.json` | Metadatos del dataset |
 
 ---
 
-## 📋 Próximos Pasos Sugeridos
+## 🔧 Requisitos Previos
 
-### Prioridad Alta 🔴 (Completar primero)
+### Software Necesario
 
-1. **Completar Sección 2.3 - Pruebas de Hipótesis (8% → 100%)**
-   - Comparar todas las variables continuas entre GDM vs No-GDM
-   - Aplicar ANOVA/Kruskal-Wallis para dieta vs actividad física
-   - Realizar pruebas de proporciones (chi², z-test)
-   - Calcular y reportar tamaño de efecto (d de Cohen)
-   - **Tiempo estimado**: 6-8 horas
+- ✓ Visual Studio Code
+- ✓ Python 3.8 o superior
+- ✓ Extensión: Python (Microsoft)
+- ✓ Extensión: Jupyter (Microsoft)
+- ✓ **Make** (herramienta de automatización)
 
-2. **Completar Sección 2.5 - Análisis Bivariado (28% → 100%)**
-   - Crear scatterplots con regresión y R²
-   - Generar boxplots comparativos por grupo GDM
-   - Interpretar correlaciones fuertes (|r| > 0.7)
-   - Relacionar hallazgos con literatura clínica
-   - **Tiempo estimado**: 4-5 horas
+### Sistemas Soportados
 
-3. **Crear Sección 2.6 - Conclusiones (0% → 100%)**
-   - Sintetizar hallazgos principales
-   - Interpretar resultados en contexto clínico
-   - Discutir limitaciones del estudio
-   - Proponer próximos pasos (modelado predictivo)
-   - **Tiempo estimado**: 2-3 horas
-
-### Prioridad Media 🟡 (Mejorar secciones existentes)
-
-4. **Mejorar Sección 2.2 - Intervalos de Confianza (54% → 100%)**
-   - Calcular IC para variables faltantes (HDL, presión arterial, triglicéridos)
-   - Implementar IC para proporciones (método Wilson/Agresti-Coull)
-   - Calcular IC para diferencias de medias entre grupos
-   - Interpretar IC en contexto clínico
-   - **Tiempo estimado**: 3-4 horas
-
-5. **Mejorar Sección 2.1 - Exploración Descriptiva (56% → 100%)**
-   - Generar histogramas individuales con interpretación
-   - Añadir gráficos de densidad (KDE)
-   - Documentar estrategia de manejo de outliers
-   - Interpretar tendencias y dispersiones por variable
-   - **Tiempo estimado**: 2-3 horas
-
-### Prioridad Baja 🟢 (Refinamiento)
-
-6. **Completar Sección 2.4 - Evaluación de Normalidad (85% → 100%)**
-   - Generar QQ-plots para todas las variables
-   - Crear histogramas con curva normal superpuesta
-   - Probar transformaciones (log, Box-Cox)
-   - Documentar impacto de transformaciones
-   - **Tiempo estimado**: 2-3 horas
-
-### Antes de la Entrega
-
-7. **Verificación Final**
-   - Ejecutar todo el notebook secuencialmente
-   - Verificar que todas las visualizaciones se generen correctamente
-   - Completar información del equipo en `Entregable.ipynb`
-   - Revisar redacción y ortografía
-   - Comprimir archivos (`.tar.gz` o `.zip`)
-   - **Tiempo estimado**: 1-2 horas
-
-### ⏰ Tiempo Total Estimado: 21-30 horas
+- Windows 10/11
+- Linux (Ubuntu 20.04+, Debian 11+, Fedora 35+)
+- macOS 11+ (Big Sur o superior)
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Configuración del Ambiente
 
-- **Python 3.x**
-- **Jupyter Notebook**
-- **pandas, numpy**: Manipulación de datos
-- **matplotlib, seaborn**: Visualización
-- **scipy.stats**: Pruebas estadísticas
-- **scikit-learn**: Detección de outliers (Isolation Forest)
-- **Git/GitHub**: Control de versiones
+### Paso 1: Instalar Make
 
----
+Este proyecto usa **Makefile** para automatizar todas las tareas. Verifica si tienes `make` instalado:
 
-## 📅 Información de Entrega
-
-- **Fecha límite**: Viernes 15 de noviembre de 2025, 13:00 hrs (SCL)
-- **Formato**: Archivo comprimido (`.tar.gz` o `.zip`)
-- **Envío**: david.medina@umag.cl
-- **Profesor**: David Medina Ortiz
-
----
-
-## 📂 Estructura del Repositorio
-
+```bash
+make --version
 ```
-matecdlc2025-guia2/
-├── Entregable.ipynb                          # Documento principal de entrega
-├── 1_check_data.ipynb                        # Prototipo de desarrollo
-├── auxiliar_functions.py                     # Funciones auxiliares
-├── gdm_first_trimester_ml_dataset.csv        # Dataset principal
-├── gdm_first_trimester_ml_dataset_metadata.json
-├── INSTRUCCIONES.md                          # Guía práctica original
-├── TASKS.md                                  # Tareas por sección
-├── TASK2.md                                  # Tareas por prioridad
-├── README.md                                 # Este archivo
-├── .gitignore                                # Configuración Git
-└── __pycache__/
-    └── README.md                             # Evaluación de progreso
+
+Si no lo tienes, instálalo según tu sistema operativo:
+
+#### Windows
+
+**Opción 1: Chocolatey (Recomendado)**
+```powershell
+# Instalar Chocolatey si no lo tienes: https://chocolatey.org/install
+choco install make
+```
+
+**Opción 2: Scoop**
+```powershell
+scoop install make
+```
+
+**Opción 3: Git Bash**
+- Instala [Git for Windows](https://git-scm.com/download/win) que incluye `make` en Git Bash
+
+#### Linux
+
+```bash
+# Debian/Ubuntu
+sudo apt-get install make
+
+# Fedora/RHEL
+sudo dnf install make
+
+# Arch
+sudo pacman -S make
+```
+
+#### macOS
+
+```bash
+# Viene preinstalado con Xcode Command Line Tools
+xcode-select --install
 ```
 
 ---
 
-**Universidad de Magallanes**  
-**Facultad de Ingeniería - Departamento de Ingeniería en Computación**  
-**Asignatura**: Matemática para Ciencias de la Computación
+### Paso 2: Configurar el Proyecto
+
+Una vez tengas `make` instalado:
+
+#### Opción A: Instalación Rápida (sin entorno virtual)
+
+```bash
+make setup
+```
+
+Este comando instala todas las dependencias en tu instalación global de Python.
+
+#### Opción B: Entorno Virtual (Recomendado)
+
+```bash
+make setup-venv
+```
+
+Este comando:
+- ✅ Crea un entorno virtual en `.venv`
+- ✅ Instala todas las dependencias
+- ✅ Registra el kernel Jupyter como "Python (GDM)"
+
+**Para activar el entorno en sesiones futuras:**
+
+```powershell
+# Windows (PowerShell)
+.\.venv\Scripts\Activate.ps1
+```
+
+```bash
+# Linux/macOS
+source .venv/bin/activate
+```
+
+---
+
+### Comandos Útiles del Makefile
+
+```bash
+make help           # Ver todos los comandos disponibles
+make setup          # Instalación rápida (global)
+make setup-venv     # Crear entorno virtual completo
+make install-deps   # Solo actualizar/instalar dependencias
+make install-kernel # Registrar kernel Jupyter
+make clean-venv     # Eliminar entorno virtual
+make dist           # Crear archivo tar.gz para entrega
+make clean          # Eliminar archivo tar.gz
+```
+
+---
+
+## 💻 Uso en Visual Studio Code
+
+### 1. Abrir el Proyecto
+
+```
+File → Open Folder → Seleccionar carpeta del proyecto
+```
+
+### 2. Abrir el Notebook
+
+Click en `Informe.ipynb` desde el explorador de archivos de VSCode
+
+### 3. Seleccionar Kernel
+
+- Click en **"Select Kernel"** (esquina superior derecha)
+- Elegir **"Python (GDM)"** si usaste entorno virtual
+- O elegir tu instalación de Python global
+
+### 4. Ejecutar el Análisis
+
+**Opciones:**
+- **Run All:** Click en el botón ⏩ en la barra superior
+- **Celda por celda:** `Shift + Enter` en cada celda
+- **Ejecutar hasta cursor:** `Ctrl + Alt + Enter` (`Cmd + Alt + Enter` en Mac)
+
+### 5. Tiempo de Ejecución
+
+- **Completo:** ~2-3 minutos
+- **Por secciones:** 20-30 segundos cada una
+
+---
+
+## 📚 Estructura del Notebook
+
+```
+1. Descripción General del Dataset
+2. Desarrollo del Análisis
+   ├── 2.1 Análisis Exploratorio (EDA)
+   ├── 2.2 Intervalos de Confianza
+   ├── 2.3 Pruebas de Hipótesis
+   ├── 2.4 Evaluación de Normalidad
+   └── 2.5 Análisis Bivariado
+3. Finalización y Resumen de Método
+   ├── 3.1 Interpretación Clínica y Conclusiones
+   └── 3.2 Declaración de Método
+```
+
+---
+
+## 🔧 Solución de Problemas
+
+### ❌ No se puede seleccionar kernel / "ipykernel not found"
+
+**Solución:**
+```bash
+make install-kernel
+```
+
+### ❌ ModuleNotFoundError al ejecutar celdas
+
+**Solución:**
+```bash
+make install-deps
+```
+
+### ❌ Gráficos no se visualizan en VSCode
+
+**Solución:** Verificar que la primera celda de código tenga:
+```python
+import matplotlib.pyplot as plt
+%matplotlib inline
+```
+
+### ❌ Errores de permisos en Linux
+
+**Solución:** Agregar `--user` a pip install:
+```bash
+pip3 install --user <paquete>
+```
+
+### ❌ Kernel se desconecta o no responde
+
+**Solución:** En VSCode:
+- Click en **"Restart"** en barra superior del notebook
+- O Command Palette (`Ctrl+Shift+P`) → **"Restart Kernel"**
+
+---
+
+## 📦 Librerías Utilizadas
+
+| Librería | Versión | Descripción |
+|----------|---------|-------------|
+| `pandas` | >= 1.3.0 | Manipulación de datos tabulares |
+| `numpy` | >= 1.21.0 | Operaciones numéricas y álgebra lineal |
+| `matplotlib` | >= 3.4.0 | Visualización de gráficos base |
+| `seaborn` | >= 0.11.0 | Visualización estadística avanzada |
+| `scipy` | >= 1.7.0 | Análisis estadístico y pruebas |
+| `scikit-learn` | >= 0.24.0 | Algoritmos de machine learning |
+| `ipykernel` | >= 6.0.0 | Kernel de Jupyter para VSCode |
+
+---
+
+## ℹ️ Información Adicional
+
+- Dataset sintético generado con fines educativos
+- Análisis estadísticos implementados completamente por el equipo
+- IA utilizada solo para asistencia editorial (ver notebook sección 3.2.2)
+- Código reproducible y completamente documentado
+- Funciones auxiliares reutilizables en `auxiliar_functions.py`
+
+### Contacto
+
+- **Profesor:** David Medina Ortiz ([david.medina@umag.cl](mailto:david.medina@umag.cl))
+- **Equipo:** Alma de Litio
+- **Universidad:** Universidad de Magallanes
+
+### Control de Versiones
+
+- **Sistema:** Git + GitHub
+- **Herramientas:** VSCode + extensiones de Git
+
+---
+
+<sub>© 2025 - Equipo Alma de Litio - Universidad de Magallanes  
+Uso exclusivo para evaluación académica</sub>
